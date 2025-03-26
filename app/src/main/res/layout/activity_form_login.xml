@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<LinearLayout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/black"
     android:orientation="vertical"
     tools:context=".view.FormLogin">
@@ -20,35 +25,58 @@
         android:layout_marginStart="20dp"/>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/containerEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
+        app:helperTextTextColor="@color/orange"
+        app:helperTextEnabled="true"
+        app:errorEnabled="true"
         android:layout_marginTop="50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:hint="Email"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/light_gray"
+            android:padding="25dp"
+            android:textCursorDrawable="@drawable/cursor_edittext_login"
             android:inputType="textEmailAddress"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/containerSenha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        app:helperTextTextColor="@color/orange"
+        app:helperTextEnabled="true"
+        app:errorEnabled="true"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_marginEnd="20dp"
+        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
+        style="@style/ThemeOverlay.Material3.AutoCompleteTextView.FilledBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editSenha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
             android:hint="Senha"
+            android:textColorHint="@color/white"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@color/light_gray"
+            android:padding="25dp"
+            android:textCursorDrawable="@drawable/cursor_edittext_login"
             android:inputType="numberPassword"/>
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -57,13 +85,18 @@
         android:id="@+id/btnEnter"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue"
+        android:backgroundTint="@color/black"
         android:text="Entrar"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:padding="15dp"
-        android:layout_margin="20dp"/>
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        app:strokeWidth= "2dp"
+        app:strokeColor= "@color/white"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -84,6 +117,6 @@
         android:layout_margin="20dp"
         android:layout_gravity="center"/>
 
-
-
 </LinearLayout>
+
+</ScrollView>
