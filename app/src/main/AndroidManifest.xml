@@ -16,6 +16,9 @@
             android:name=".view.FormCadastro"
             android:exported="false" />
         <activity
+            android:name=".view.FormCadastro"
+            android:exported="false" />
+        <activity
             android:name=".view.FormLogin"
             android:exported="false" />
         <activity

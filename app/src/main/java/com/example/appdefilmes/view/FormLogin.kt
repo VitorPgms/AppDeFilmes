@@ -29,17 +29,18 @@ class FormLogin : AppCompatActivity() {
         binding.editEmail.requestFocus()
 
         binding.btnEnter.setOnClickListener {
+
             val email = binding.editEmail.text.toString()
             val senha = binding.editSenha.text.toString()
 
             when{
                 email.isEmpty() -> {
-                    binding.containerEmail.helperText = "Preencha o email"
-                    binding.containerEmail.boxStrokeColor = Color.parseColor("#FF5722")
+                    binding.containerEmail.helperText = "Preencha o email!"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#FF9800")
                 }
                 senha.isEmpty() -> {
-                    binding.containerSenha.helperText = "Preencha a senha"
-                    binding.containerSenha.boxStrokeColor = Color.parseColor("#FF5722")
+                    binding.containerSenha.helperText = "Preencha a senha!"
+                    binding.containerSenha.boxStrokeColor = Color.parseColor("#FF9800")
                 }
             }
         }
@@ -48,6 +49,5 @@ class FormLogin : AppCompatActivity() {
             val intent = Intent(this, FormCadastro::class.java)
             startActivity(intent)
         }
-
     }
 }

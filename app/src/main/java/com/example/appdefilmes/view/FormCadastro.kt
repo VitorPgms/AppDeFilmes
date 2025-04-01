@@ -1,5 +1,6 @@
 package com.example.appdefilmes.view
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import com.example.appdefilmes.R
 import com.example.appdefilmes.databinding.ActivityFormCadastroBinding
 
 class FormCadastro : AppCompatActivity() {
+
     private lateinit var binding: ActivityFormCadastroBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +26,6 @@ class FormCadastro : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
         window.statusBarColor = Color.parseColor("#FFFFFF")
         binding.editEmail.requestFocus()
 
@@ -60,6 +61,11 @@ class FormCadastro : AppCompatActivity() {
                 binding.containerEmail.boxStrokeColor = Color.parseColor("#FF0000")
                 binding.containerEmail.helperText = "O email é obrigatorio."
             }
+        }
+
+        binding.txtEntrar.setOnClickListener {
+            val intent = Intent(this, FormLogin::class.java)
+            startActivity(intent)
         }
     }
 }
