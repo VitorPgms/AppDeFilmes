@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1036011177887",
+    "project_id": "aplicativo-de-filmes-c124f",
+    "storage_bucket": "aplicativo-de-filmes-c124f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1036011177887:android:20368533657b5f7adcdfaa",
+        "android_client_info": {
+          "package_name": "com.example.appdefilmes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVr6_5_tU9rnvT6r9Y3ec3YMIlYZ1WN-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
