@@ -12,7 +12,11 @@ import androidx.core.view.WindowInsetsCompat
 import com.example.appdefilmes.R
 import com.example.appdefilmes.databinding.ActivityFormCadastroBinding
 import com.google.firebase.Firebase
+import com.google.firebase.FirebaseNetworkException
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthProvider
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 
 class FormCadastro : AppCompatActivity() {
 
@@ -76,9 +80,31 @@ class FormCadastro : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, senha).addOnCompleteListener { cadastro ->
             if(cadastro.isSuccessful){
                 Toast.makeText(this, "Cadastro realizdo com sucesso!", Toast.LENGTH_SHORT).show()
+                binding.containerEmail.helperText = ""
+                binding.containerSenha.helperText = ""
+                binding.containerEmail.boxStrokeColor = Color.parseColor("#FF018786")
+                binding.containerSenha.boxStrokeColor = Color.parseColor("#FF018786")
             }
         }.addOnFailureListener {
-            Toast.makeText(this,"Erro ao cadastrar!", Toast.LENGTH_SHORT).show()
+            val erro = it
+
+            when{
+                erro is FirebaseAuthWeakPasswordException -> {
+                    binding.containerSenha.helperText = "Digite uma senha com no mínimo 6 caracteres!"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#FF0000")
+                }
+                erro is FirebaseAuthUserCollisionException -> {
+                    binding.containerEmail.helperText = "Essa conta já foi cadastrada!"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#FF0000")
+                }
+                erro is FirebaseNetworkException -> {
+                    binding.containerSenha.helperText = "Você não esta conectado há internet"
+                    binding.containerEmail.boxStrokeColor = Color.parseColor("#FF0000")
+                }
+                else -> {
+                    Toast.makeText(this, "Erro ao cadastrar usuário!", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }
