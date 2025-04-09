@@ -1,8 +1,10 @@
 package com.example.appdefilmes.view
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -11,9 +13,17 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appdefilmes.R
 import com.example.appdefilmes.adapter.AdapterCategoria
+import com.example.appdefilmes.api.Api
 import com.example.appdefilmes.databinding.ActivityTelaPrincipalBinding
 import com.example.appdefilmes.model.Categoria
+import com.example.appdefilmes.model.Categorias
+import com.example.appdefilmes.model.Filme
 import com.google.firebase.auth.FirebaseAuth
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class TelaPrincipal : AppCompatActivity() {
 
@@ -39,7 +49,6 @@ class TelaPrincipal : AppCompatActivity() {
         recycleViewFilmes.setHasFixedSize(true)
         adapterCategoria = AdapterCategoria(this, listaCategorias)
         recycleViewFilmes.adapter = adapterCategoria
-        getCategorias()
 
         binding.txtSair.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
@@ -49,20 +58,33 @@ class TelaPrincipal : AppCompatActivity() {
             Toast.makeText(this, "Usuario saiu do App! ", Toast.LENGTH_SHORT).show()
         }
 
+        //Config Retrofit
+        val retrofit = Retrofit.Builder()
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl("https://stackmobile.com.br/")
+            .build()
+            .create(Api::class.java)
+
+        retrofit.listaCategorias().enqueue(object  : Callback<Categorias>{
+            @SuppressLint("NotifyDataSetChanged")
+            override fun onResponse(call: Call<Categorias>, response: Response<Categorias>) {
+                if(response.code() == 200){
+                    response.body()?.let {
+                        adapterCategoria.listaCategorias.addAll(it.categorias)
+                        adapterCategoria.notifyDataSetChanged()
+                        binding.containerProgressBar.visibility = View.GONE
+                        binding.progressBar.visibility = View.GONE
+                        binding.txtCarregando.visibility = View.GONE
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<Categorias>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
+
+        })
     }
 
-    private  fun getCategorias(){
-        val categoria1 = Categoria("Categoria 1")
-        listaCategorias.add(categoria1)
-
-        val categoria2 = Categoria("Categoria 2")
-        listaCategorias.add(categoria1)
-
-        val categoria3 = Categoria("Categoria 3")
-        listaCategorias.add(categoria1)
-
-        val categoria4 = Categoria("Categoria 4")
-        listaCategorias.add(categoria1)
-    }
 
 }
