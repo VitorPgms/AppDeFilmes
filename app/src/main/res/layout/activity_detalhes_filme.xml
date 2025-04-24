@@ -5,6 +5,124 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".view.DetalhesFilme">
+
+    <ImageView
+        android:id="@+id/capaFilme"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:src="@color/blue"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_nome_filmes"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/capaFilme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+    
+    <ImageView
+        android:id="@+id/icAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="55dp"/>
+    
+    <TextView
+        android:id="@+id/txtMinhaLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_minha_lista"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        app:layout_constraintTop_toBottomOf="@+id/icAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnAssistir"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="20dp"/>
+
+    <Button
+        android:id="@+id/btnAssistir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_assistir"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textAllCaps="true"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/ic_play"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintStart_toEndOf="@+id/txtMinhaLista"
+        app:layout_constraintEnd_toStartOf="@id/txtSaibaMais"
+        android:padding="15dp"
+        android:layout_marginTop="20dp"/>
+
+    <ImageView
+        android:id="@+id/icInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_info"
+        app:layout_constraintTop_toBottomOf="@+id/txtNome"
+        app:layout_constraintStart_toEndOf="@id/btnAssistir"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="45dp"/>
+
+    <TextView
+        android:id="@+id/txtSaibaMais"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/txt_saiba_mais"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnAssistir"
+        app:layout_constraintTop_toBottomOf="@id/icInfo" />
+
+    <TextView
+        android:id="@+id/txtDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_descricao"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/btnAssistir"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:id="@+id/txtElenco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/txt_elenco"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@id/txtDescricao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

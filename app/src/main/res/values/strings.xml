@@ -1,3 +1,36 @@
 <resources>
+    <!--Main-->
     <string name="app_name">App de Filmes</string>
+
+    <!-- Layout Tela FormLogin-->
+    <string name="txt_ajuda_login">Precisa de ajuda?</string>
+    <string name="txt_cadastro">Novo por aqui? Inscreva-se agora!</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_senha">Senha</string>
+    <string name="btn_entrar">Entrar</string>
+
+    <!--Layout Tela FormCadastro-->
+    <string name="txt_ajuda_cadastro">AJUDA</string>
+    <string name="txt_login_cadastro">ENTRAR</string>
+    <string name="txt_titulo_cadastro">Tudo pronto para \n assistir?</string>
+    <string name="txt_descricao_cadastro">Informe seu email para criar ou acessar sua \n conta.</string>
+    <string name="btn_cadastro">VAMOS LÁ</string>
+    <string name="btn_continuar">CONTINUAR</string>
+
+    <!--Layout Tela Principal-->
+    <string name="txt_categoria_serie">Series</string>
+    <string name="txt_categoria_filmes">Filmes</string>
+    <string name="txt_categoria_lista">Minha Lista</string>
+    <string name="txt_sair">Sair</string>
+    <string name="txt_carregando">Carregando...</string>
+
+    <!--Layout Tela DetalhesFilmes-->
+    <string name="txt_nome_filmes">Filme</string>
+    <string name="txt_minha_lista">Minha Lista</string>
+    <string name="txt_saiba_mais">Saiba mais</string>
+    <string name="txt_descricao">Saiba mais</string>
+    <string name="txt_elenco">elenco</string>
+    <string name="btn_assistir">Assistir</string>
+
+
 </resources>
